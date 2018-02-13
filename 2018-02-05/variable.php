@@ -1,8 +1,10 @@
+<html>
 <style>
 	h1{
 		font-weight:normal;
 		font-size:100px;
 		letter-spacing: -0.04em;
+		line-height:0.88;
 	}
 </style>
 
@@ -15,7 +17,8 @@ $statement = $_GET['statement'];
 
 $counter = 1;
 while ($counter <= $number) {
-  echo "$statement ";
+  
+  echo "Hell " . "$statement ";
   $counter++;
 
 }
@@ -24,3 +27,4 @@ while ($counter <= $number) {
 
 Goodbye.
 </h1>
+</html>
