@@ -21,6 +21,13 @@
 		display:inline-block;
 		font-family:'Gothic 523';
 		letter-spacing: -0.04em;
+		color:blue;
+		mix-blend-mode: multiply;
+		line-height:1;
+	}
+
+	span:nth-child(odd){
+		color:red;
 	}
 </style>
 </head>
