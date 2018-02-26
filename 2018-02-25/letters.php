@@ -29,7 +29,7 @@
 		fill:none;
 		max-height:90vh;
 		vector-effect: non-scaling-stroke;
-		max-width:20vw;
+		max-width:30vw;
 	}
 	svg polyline,
 	svg polygon{
@@ -82,6 +82,17 @@
 				rand(19,23), rand(6,9), 
 				rand(72,77), rand(27,32), 
 				rand(70,75), rand(79,83)
+			),
+			'E'=>array(
+				rand(82,83), rand(10,20),
+				rand(3,5), rand(7,10), 
+				rand(5,10), rand(90,95),
+				rand( 75,85),rand(84,94) 
+			),
+			'F'=>array(
+				rand(55,65), rand(10,15),
+				rand(5,10),rand(10,20),
+				rand(15,20),rand(70,90)
 			)
 		);
 		$b = array(
@@ -131,20 +142,14 @@
 			rand(77,85),rand(28,37)
 		);
 
-
+		// loop through all the coordinates within the supplied character
 		function getCoordinates($char){
 			global $characters;
-			// echo $char.$characters[$char];
-
 			for ($i=0; $i <=count($characters[$char]); $i++ )
 				echo $characters[$char][$i]." ";
 		}
 
-
-
-
-	
-
+		// draw the SVG based on the selected character
 		function drawLetter($character){
 			global $number;
 			echo '<svg class="'.$character.'" viewBox="0 0 100 100" stroke-width="'.$number.'">';
@@ -154,14 +159,18 @@
 			echo '</svg>';
 		}
 
-		drawLetter("$word");
-		
+		// drawLetter("$word");
+
+		// split the input into indivudal characters and draw them in the DOM
+		for ($i=0; $i < $strlen ; $i++) { 
+			drawLetter("$word[$i]");
+		}		
 
 
 
 
 	 ?>
-	
+	<!-- 
 	<svg class="A" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
 		<polyline points="
 			<?php 
@@ -236,7 +245,7 @@
 	<svg class="K" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
 		<polyline points="5 5 10 50 6 90"/>
 		<polyline points="90 5 50 40 5 50 70 70 90 90"/>
-	</svg>
+	</svg> -->
 
 	<nav class="controller-nav">
 		 <form class="controls" method="get">
