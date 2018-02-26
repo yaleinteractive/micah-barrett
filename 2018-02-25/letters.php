@@ -6,7 +6,7 @@
 	body{
 		/*display:flex;*/
 		/*flex-wrap: wrap;*/
-		background:white;
+		background:blue;
 	}
 	
 	.controller-nav{
@@ -55,24 +55,25 @@
 		
 		$str = $word;
 		$strlen = strlen($str);
+		$amplitude = $number;
 
 		$characters = array(
 			'A'=> array(
-				rand(18,24), rand(90,99),
-				rand(38,44), rand(4,10),
-				rand(70,80), rand(7,10),
-				rand(84,92), rand(93,98)
+				20, 85,
+				38, 10,
+				75, 10,
+				84, 88
 			),
 			'B'=> array(
-				rand(10,13), rand(95,98),
-				rand(4,7), rand(10,14),
-				rand(60,65), rand(5,9),
-				rand(70,77), rand(30,35),
-				rand(9,12), rand(40,47),
-				rand(85,88), rand(50,55),
-				rand(90,95), rand(90,96),
-				rand(28,32), rand(77,80),
-				rand(10,13), rand(95,90)
+				10, 88,
+				8, 14,
+				60, 9,
+				77, 32,
+				9, 42,
+				85, 50,
+				88, 90,
+				28, 77,
+				13, 90
 			),
 			'C'=>array(
 				rand(70,72), rand(58,73), 
@@ -83,17 +84,17 @@
 				rand(64,70), rand(43,48)
 			),
 			'D'=>array(
-				rand(68,72), rand(78,84), 
-				rand(20,24), rand(87,91), 
-				rand(19,23), rand(6,9), 
-				rand(72,77), rand(27,32), 
-				rand(70,75), rand(79,83)
+				70, 79, 
+				22, 87, 
+				19, 14, 
+				72, 32, 
+				70, 79
 			),
 			'E'=>array(
-				rand(82,83), rand(10,20),
-				rand(3,5), rand(7,10), 
-				rand(5,10), rand(90,95),
-				rand( 75,85),rand(84,94) 
+				82, 14,
+				8, 10, 
+				8, 83,
+				75,84 
 			),
 			'F'=>array(
 				rand(55,65), rand(10,15),
@@ -101,14 +102,14 @@
 				rand(15,20),rand(70,90)
 			),
 			'G'=>array(
-				rand(48,52), rand(55,63),
-				rand(85,90),rand(48,52), 
-				rand(78,82),rand(85,87),
-				rand(38,44),rand(84,92),
-				rand(18,24),rand(77,86),
-				rand(8,14),rand(38,45),
-				rand(44,55),rand(7,13),
-				rand(77,85),rand(28,37)
+				50, 58,
+				85, 51, 
+				78, 85,
+				38, 84,
+				18, 77,
+				9, 42,
+				50, 10,
+				77, 37
 			),
 			'H'=>array(
 				3, 3, 10, 92
@@ -118,18 +119,23 @@
 				5, 5, 90, 10
 			),
 			'J'=>array(
-				5, 50, 25, 80, 45, 90, 80, 85, 90, 50, 90, 5
+				 5, 50, 
+				25, 80, 
+				45, 90, 
+				80, 85, 
+				90, 50, 
+				90, 5
 			),
 			'L'=>array(
 				10, 10, 15, 50, 11, 90, 50, 84, 75, 91, 70, 70
 			),
 			'M'=>array(
-				rand(5,15), rand(80,92), 
-				rand(8,12), rand(40,60), 
-				rand(8,18), rand(10,20), 
-				rand(23,43), rand(14,22), 
-				rand(24,32), rand(39,48), 
-				rand(25,34), 85, 
+				15, 80, 
+				8, 45, 
+				12, 14, 
+				32, 19, 
+				28, 42, 
+				26, 85, 
 				40, 88, 
 				42,50, 
 				51, 10, 
@@ -140,7 +146,7 @@
 			'N'=>array(
 			 10, 90, 
 			 12, 35, 
-			 8, 10, 
+			  8, 10, 
 			 25, 15, 
 			 45, 60, 
 			 39, 85, 
@@ -151,16 +157,92 @@
 			 90, 10	
 			),
 			'O'=>array(
-				45, 10, 10, 20, 15, 50, 10, 90, 50, 85, 90, 90, 88, 49, 90, 10, 45, 10
+				45, 10, 
+				10, 20, 
+				15, 50, 
+				10, 90, 
+				50, 85, 
+				90, 90, 
+				88, 49, 
+				90, 10, 
+				45, 10
 			),
 			'P'=>array(
-				10,90, 12, 30, 10, 10, 55, 14, 90, 45, 85, 55, 45, 65, 10, 40
+				10, 90, 
+				12, 30, 
+				10, 10, 
+				55, 14, 
+				90, 45, 
+				85, 55, 
+				45, 65, 
+				10, 40
 			),
 			'R'=>array(
-				10,90, 15, 40, 10, 12, 30, 15, 50, 10, 75, 25, 80, 40, 40, 55, 10, 50, 30, 50, 70, 70, 80, 90
+				10, 90, 
+				15, 40, 
+				10, 12, 
+				30, 15, 
+				50, 10, 
+				75, 25, 
+				80, 40, 
+				40, 55, 
+				10, 50, 
+				30, 50, 
+				70, 70, 
+				80, 90
 			),
 			'S'=>array(
-				20,55, 10,80, 50, 90, 70, 80, 90, 50, 50, 45, 20, 30, 40, 10, 50, 15, 70, 20, 80, 30 
+				20, 55, 
+				10, 80, 
+				50, 90, 
+				70, 80, 
+				90, 50, 
+				50, 45, 
+				20, 30, 
+				40, 10, 
+				50, 15, 
+				70, 20, 
+				80, 30 
+			),
+			'U'=>array(
+				10, 10,
+				12, 55,
+				10, 84,
+				35, 87,
+				75, 83,
+				80, 45,
+				75, 14
+			),
+			'V'=>array(
+				10, 10,
+				15, 45,
+				45, 90,
+				82, 55,
+				85, 12
+			),
+			'W'=>array(
+				15, 10,
+				16, 60,
+				12, 80,
+				28, 82,
+				35, 82,
+				42, 12,
+				58, 18,
+				62, 84,
+				79, 82,
+				88, 60,
+				82, 10	
+			),
+			'Z'=>array(
+				10, 10,
+				55, 15,
+				85, 11,
+				82, 32,
+				45, 55,
+				12, 75,
+				15, 85,
+				65, 80,
+				82, 85
 			)
 		);
 		
@@ -168,22 +250,22 @@
 		// loop through all the coordinates within the supplied character
 		function getCoordinates($char){
 			global $characters;
+			global $amplitude;
 			for ($i=0; $i <=count($characters[$char]); $i++ )
-				echo $characters[$char][$i]." ";
-				
+				echo $characters[$char][$i] + rand(-$amplitude, $amplitude)." ";
+
 		}
 
 		// draw the SVG based on the selected character
 		function drawLetter($character){
 			global $number;
-			echo '<svg class="'.$character.'" viewBox="0 0 100 100" stroke-width="'.$number.'">';
+			echo '<svg class="'.$character.'" viewBox="0 0 100 100" stroke-width="40">';
 			echo '<polyline points="';
 			getCoordinates($character);
 			echo '"/>';
 			echo '</svg>';
 		}
 
-		// drawLetter("$word");
 
 		// split the input into indivudal characters and draw them in the DOM
 		for ($i=0; $i < $strlen ; $i++) { 
