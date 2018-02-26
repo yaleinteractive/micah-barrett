@@ -133,52 +133,7 @@
 				20,55, 10,80, 50, 90, 70, 80, 90, 50, 50, 45, 20, 30, 40, 10, 50, 15, 70, 20, 80, 30 
 			)
 		);
-		$b = array(
-			rand(10,13), rand(95,98),
-			rand(4,7), rand(10,14),
-			rand(60,65), rand(5,9),
-			rand(70,77), rand(30,35),
-			rand(9,12), rand(40,47),
-			rand(85,88), rand(50,55),
-			rand(90,95), rand(90,96),
-			rand(28,32), rand(77,80),
-		);
-
-		$a = array(
-			rand(18,24), rand(90,99),
-			rand(38,44), rand(4,10),
-			rand(70,80), rand(7,10),
-			rand(84,92), rand(93,98)
-		);
-
-		$c = array(
-			rand(70,72), rand(58,73), 
-			rand(70,75), rand(80,88), 
-			rand(20,24), rand(73,79), 
-			rand(18,20), rand(22,27), 
-			rand(77,80), rand(10,20), 
-			rand(64,70), rand(43,48)
-		);
-
-		$d = array(
-			rand(68,72), rand(78,84), 
-			rand(20,24), rand(87,91), 
-			rand(19,23), rand(6,9), 
-			rand(72,77), rand(27,32), 
-			rand(70,75), rand(79,83)
-
-		);
-
-		$g = array(
-			rand(48,52), rand(55,63),
-			rand(85,90),rand(48,52), 
-			rand(78,82),rand(85,87),
-			rand(38,44),rand(84,92),
-			rand(18,24),rand(77,86),
-			rand(8,14),rand(38,45),
-			rand(44,55),rand(7,13),
-			rand(77,85),rand(28,37)
-		);
+		
 
 		// loop through all the coordinates within the supplied character
 		function getCoordinates($char){
