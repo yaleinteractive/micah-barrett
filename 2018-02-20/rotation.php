@@ -3,6 +3,9 @@
 <title></title>
 <style>
 	
+	body{
+		margin:0;
+	}
 	.a{
 		background:red;
 		width:10em;
@@ -19,7 +22,7 @@
 	
 	span{
 		display:inline-block;
-		font-family:'Gothic 523';
+		font-family:'FlamaUltracondensed-Bold';
 		letter-spacing: -0.04em;
 		color:blue;
 		mix-blend-mode: multiply;
@@ -50,13 +53,29 @@
 			color:blue;
 		}
 	}
+	
+	.controller-nav{
+		position:fixed;
+		bottom:0;
+	}
+
+	.controller-nav.active{
+		transform:translateY(2em);
+	}
+
+	.controller-nav__trigger{
+		width:100%;
+		display: block;
+		padding:0.5em;
+		cursor:pointer;
+		text-align:center;
+		background:red;
+	}
 
 	.controls{
 		display:flex;
 		width:100vw;
-		position:fixed;
 		z-index:10;
-		bottom:0;
 	}
 
 	input{
@@ -64,6 +83,13 @@
 		width:33%;
 		font-family:menlo;
 		font-size:1em;
+	}
+	
+	input:nth-child(even){
+		border-left:none;
+		border-right:none;
+		border-top:1px solid rgb(238,238,238);
+		border-bottom:1px solid rgb(238,238,238);
 	}
 
 	input:active{
@@ -117,13 +143,29 @@
 
 
 	 ?>
+	<nav class="controller-nav">
+		<!-- <a class="controller-nav__trigger">^</a> -->
 	
-	 <form class="controls" method="get">
-		<input name="letter" type="text" value="<?php echo $letter ?>" >
-		<input name="number" type="number" value="<?php echo $number ?>" >
-		<input name="size" type="number" value="<?php echo $size ?>">
-		<input type="submit">
+		 <form class="controls" method="get">
+			<input name="letter" type="text" value="<?php echo $letter ?>" >
+			<input name="number" type="number" value="<?php echo $number ?>" >
+			<input name="size" type="number" value="<?php echo $size ?>">
+			<input type="submit">
+		</form>
+	</nav>
 
-	</form>
+	<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			$('.controller-nav__trigger').click(function(){
+				$('.controller-nav').toggleClass('active');
+				$('.controller-nav__trigger').toggleClass('active');
+			});
+		});
+		
+	</script>
 </body>
 </html>
