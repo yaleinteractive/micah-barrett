@@ -31,6 +31,12 @@
 		vector-effect: non-scaling-stroke;
 		max-width:30vw;
 	}
+
+	svg:hover{
+		cursor:move;
+
+	}
+
 	svg polyline,
 	svg polygon{
 		vector-effect: non-scaling-stroke;
@@ -93,6 +99,38 @@
 				rand(55,65), rand(10,15),
 				rand(5,10),rand(10,20),
 				rand(15,20),rand(70,90)
+			),
+			'G'=>array(
+				rand(48,52), rand(55,63),
+				rand(85,90),rand(48,52), 
+				rand(78,82),rand(85,87),
+				rand(38,44),rand(84,92),
+				rand(18,24),rand(77,86),
+				rand(8,14),rand(38,45),
+				rand(44,55),rand(7,13),
+				rand(77,85),rand(28,37)
+			),
+			'H'=>array(
+				3, 3, 10, 92
+
+			),
+			'I'=>array(
+				5, 5, 90, 10
+			),
+			'J'=>array(
+				5, 50, 25, 80, 45, 90, 80, 85, 90, 50, 90, 5
+			),
+			'L'=>array(
+				10, 10, 15, 50, 11, 90, 50, 84, 75, 91, 70, 70
+			),
+			'M'=>array(
+				10, 90, 8, 50, 12, 10, 33, 14, 28, 45, 25, 85, 40, 88, 42,50, 51, 10, 64, 14, 70, 55, 80, 90 
+			),
+			'O'=>array(
+				45, 10, 10, 20, 15, 50, 10, 90, 50, 85, 90, 90, 88, 49, 90, 10, 45, 10
+			),
+			'S'=>array(
+				20,55, 10,80, 50, 90, 70, 80, 90, 50, 50, 45, 20, 30, 40, 10, 50, 15, 70, 20, 80, 30 
 			)
 		);
 		$b = array(
@@ -163,89 +201,13 @@
 
 		// split the input into indivudal characters and draw them in the DOM
 		for ($i=0; $i < $strlen ; $i++) { 
-			drawLetter("$word[$i]");
+			drawLetter(strtoupper($word[$i]));
 		}		
 
 
 
 
 	 ?>
-	<!-- 
-	<svg class="A" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="
-			<?php 
-				foreach ($a as $x){
-					echo "$x ";
-				}
-			 ?>
-		"/>
-		<polyline points="20 50 81 50"/>
-	</svg>
-	
-	<svg class="B" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polygon points="
-			<?php  
-				foreach ($b as $x) {
-					echo "$x ";
-				}
-			?>
-		"/>
-	</svg>	
-
-
-	<svg class="C" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="<?php  
-				foreach ($c as $x) {
-					echo "$x ";
-				}
-			?>"/>
-	</svg>
-
-	<svg class="D" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polygon points="<?php  
-				foreach ($d as $x) {
-					echo "$x ";
-				}
-			?>"/>
-	</svg>
-	
-	<svg class="E" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="82 20 5 10 5 95 85 90 "	/>
-		<polyline points="4 55 64 45" />
-	</svg>
-
-	<svg class="F" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="60 15 10 10 15 90" />
-		<polyline points="50 30 10 30 "/ >
-	</svg>
-	<svg class="G" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="<?php  
-				foreach ($g as $x) {
-					echo "$x ";
-				}
-			?>"/>
-	</svg>
-
-	<svg class="H" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="3 3 10 92" />
-		<polyline points="90 3 80 92" />
-		<polyline points="5 50 88 55"/>
-	</svg>
-
-	<svg class="I" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="5 5 90 10"/>
-		<polyline points="50 5 55 90"/>
-		<polyline points="5 85 95 80"/>
-	</svg>
-	
-	<svg class="J" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="5 50 25 80 45 90 80 85 90 50 90 5" />
-	</svg>
-
-	<svg class="K" viewBox="0 0 100 100" stroke-width="<?php echo $number ?>">
-		<polyline points="5 5 10 50 6 90"/>
-		<polyline points="90 5 50 40 5 50 70 70 90 90"/>
-	</svg> -->
 
 	<nav class="controller-nav">
 		 <form class="controls" method="get">
@@ -255,6 +217,18 @@
 			<input type="submit">
 		</form>
 	</nav>
+	
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"></script>
+
+  <script>
+  	$(document).ready(function(){
+  		$('svg').draggable();
+  	});
+  </script>
 
 
 </body>
