@@ -6,16 +6,33 @@
 	body{
 		/*display:flex;*/
 		/*flex-wrap: wrap;*/
-		background:blue;
+		margin:2vw;
+		--color-one:rgb(255,255,255);
+		--color-two:rgb(0,0,0);
+		--color-three:rgb(255,0,200);
+		background:var(--color-one);
 	}
 	
 	.controller-nav{
 		position:fixed;
 		z-index:1000000;
-		top:0;
-		right:0;
+		bottom:0;
+		left:0;
+		background:var(--color-one);
+		border-top:2px solid var(--color-three);
+		width:100vw;
+		padding:0.5em;
 	}
 
+	label{
+		font-family:menlo;
+		color:var(--color-three);
+	}
+
+	.container{
+		/*display:flex;*/
+	}
+	
 	.letter{
 		font-size:40vw;
 		color:black;
@@ -24,12 +41,56 @@
 		text-align:center;
 		margin:0;
 	}
+	input{
+		padding:0.5em;
+	}
+
+	input:focus{
+		outline:1px solid var(--color-two);
+	}
+
+	input[type=text]{
+		width:8em;
+	}
+	
+	input[type=number],
+	input[type=text]{
+		border:none;
+		font-family:menlo;
+		background:var(--color-one);
+		font-size:1em;
+		color:var(--color-two);
+	}
+	
+	input[type=submit]{
+		box-sizing:border-box;
+		border-radius: 0px;
+	    border: none;
+	    padding-left:1em;
+	    padding-right:1em;
+	    font-family:menlo;
+	    font-size:1em;
+	    color:var(--color-one);
+	    background:var(--color-three);
+
+	}
+
+	input[type=submit]:active{
+		transform:scale(0.95);
+		background:var(--color-two);
+
+	}
+
+	input[type=number]{
+		width:3em;
+	}
+
 	svg{
-		stroke:black;
+		stroke:var(--color-two);
 		fill:none;
-		max-height:90vh;
+		height:100%;
 		vector-effect: non-scaling-stroke;
-		max-width:30vw;
+		width:calc(18vw);
 	}
 
 	svg:hover{
@@ -44,6 +105,10 @@
 </style>
 </head>
 <body>
+	<?php 
+		include '../nav.php';
+	 ?>
+
 	
 	<?php
 		$number = $_GET['number'];
@@ -57,12 +122,16 @@
 		$strlen = strlen($str);
 		$amplitude = $number;
 
+		$thickness = $_GET['thickness'];
+
 		$characters = array(
 			'A'=> array(
 				20, 85,
 				38, 10,
 				75, 10,
-				84, 88
+				84, 88,
+				75,50,
+				32,55
 			),
 			'B'=> array(
 				10, 88,
@@ -93,8 +162,13 @@
 			'E'=>array(
 				82, 14,
 				8, 10, 
-				8, 83,
-				75,84 
+				12, 50,
+				80, 55,
+				75, 65,
+				10, 70,
+				8, 85,
+				50, 90,
+				82,85
 			),
 			'F'=>array(
 				rand(55,65), rand(10,15),
@@ -112,11 +186,24 @@
 				77, 37
 			),
 			'H'=>array(
-				3, 3, 10, 92
+				3, 3, 
+				10, 92,
+				10,50,
+				80,50,
+				85,90,
+				85,10
 
 			),
 			'I'=>array(
-				5, 5, 90, 10
+				5, 5, 
+				50,5,
+				48,90,
+				10,90,
+				48,90,
+				90,90,
+				48,90,
+				50,5,
+				90,5
 			),
 			'J'=>array(
 				 5, 50, 
@@ -204,6 +291,13 @@
 				70, 20, 
 				80, 30 
 			),
+			'T'=>array(
+				8,10,
+				50,12,
+				55,90,
+				50,12,
+				85,8
+			),
 			'U'=>array(
 				10, 10,
 				12, 55,
@@ -233,6 +327,17 @@
 				88, 60,
 				82, 10	
 			),
+			'Y'=>array(
+				10,10,
+				14,34,
+				14,50,
+				50,60,
+				50,90,
+				50,60,
+				70,50,
+				80,20,
+				90,10
+			),
 			'Z'=>array(
 				10, 10,
 				55, 15,
@@ -253,13 +358,13 @@
 			global $amplitude;
 			for ($i=0; $i <=count($characters[$char]); $i++ )
 				echo $characters[$char][$i] + rand(-$amplitude, $amplitude)." ";
-
 		}
 
 		// draw the SVG based on the selected character
 		function drawLetter($character){
 			global $number;
-			echo '<svg class="'.$character.'" viewBox="0 0 100 100" stroke-width="40">';
+			global $thickness;
+			echo '<svg class="'.$character.'" viewBox="0 0 100 100" stroke-width="'.$thickness.'">';
 			echo '<polyline points="';
 			getCoordinates($character);
 			echo '"/>';
@@ -267,20 +372,29 @@
 		}
 
 
-		// split the input into indivudal characters and draw them in the DOM
+				
+	 ?>
+	<div class="container">	
+	<?php 
+	// split the input into indivudal characters and draw them in the DOM
 		for ($i=0; $i < $strlen ; $i++) { 
 			drawLetter(strtoupper($word[$i]));
-		}		
-
-
-
+		}
 
 	 ?>
+	</div>
 
 	<nav class="controller-nav">
 		 <form class="controls" method="get">
-			<input name="word" type="text" value="<?php echo $word ?>" >
-			<input name="number" type="number" value="<?php echo $number ?>" >
+		 	<label>text
+				<input name="word" label="text" type="text" value="<?php echo $word ?>" >
+			</label>
+			<label> wiggle
+				<input name="number" type="number" value="<?php echo $number ?>" >
+			</label>
+			<label> thickness
+				<input name="thickness" type="number" value="<?php echo $thickness ?>" >
+			</label>
 
 			<input type="submit">
 		</form>

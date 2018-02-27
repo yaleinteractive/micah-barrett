@@ -12,9 +12,9 @@
 		margin-top:10vh;
 		transform-origin:50% 50%;
 		text-align:center;
-		font-size:20vw;
-
-		mix-blend-mode: screen;
+		font-size:40vw;
+		font-family:"Gothic 523";
+		mix-blend-mode: difference;
 
 
 	}
@@ -36,7 +36,10 @@
 </head>
 <body>
 		
-	
+	<?php 
+		include '../nav.php';
+	 ?>
+
 
 	<?php
 		$number = $_GET['number'];

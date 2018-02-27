@@ -17,9 +17,7 @@
 		transition:all 0.2s ease-in-out;
 	}
 
-	.shape:hover{
-		transform:scaleX(1.4);
-	}
+
 	
 	.shape:nth-child(odd){
 		background:black;
@@ -46,6 +44,10 @@
 </style>
 </head>
 <body>
+	<?php 
+		include '../nav.php';
+	 ?>
+
 	
 	<?php
 		$number = $_GET['number'];

@@ -22,7 +22,7 @@
 	
 	span{
 		display:inline-block;
-		font-family:'FlamaUltracondensed-Bold';
+		font-family:'Gothic 523';
 		letter-spacing: -0.04em;
 		color:blue;
 		mix-blend-mode: multiply;
@@ -78,6 +78,10 @@
 		z-index:10;
 	}
 
+	label{
+		font-family:menlo;
+	}
+
 	input{
 		flex:1;
 		width:33%;
@@ -92,13 +96,10 @@
 		border-bottom:1px solid rgb(238,238,238);
 	}
 
-	input:active{
-
-	}
-
 	input:focus{
-		border:3px solid gray;
-		outline:none;
+		outline:1px solid red;
+		color:red;
+
 	}
 
 	input[type=submit]{
@@ -110,7 +111,8 @@
 	}
 
 	input[type=submit]:active{
-		background:black;
+		background:red;
+		transform:scale(0.94);
 		color:white;
 	}
 
@@ -120,7 +122,9 @@
 </style>
 </head>
 <body>
-
+	<?php 
+		include '../nav.php';
+	 ?>
 
 	
 	<?php 
@@ -147,9 +151,15 @@
 		<!-- <a class="controller-nav__trigger">^</a> -->
 	
 		 <form class="controls" method="get">
-			<input name="letter" type="text" value="<?php echo $letter ?>" >
-			<input name="number" type="number" value="<?php echo $number ?>" >
-			<input name="size" type="number" value="<?php echo $size ?>">
+		 	<label> Letter
+				<input name="letter" type="text" value="<?php echo $letter ?>" >
+			</label>
+			<label > Number
+				<input name="number" type="number" value="<?php echo $number ?>" >
+			</label>
+			<label> Size
+				<input name="size" type="number" value="<?php echo $size ?>">
+			</label>
 			<input type="submit">
 		</form>
 	</nav>
