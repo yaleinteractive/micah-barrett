@@ -9,7 +9,7 @@
 		margin:2vw;
 		--color-one:rgb(255,255,255);
 		--color-two:rgb(0,0,0);
-		--color-three:rgb(255,0,200);
+		--color-three:rgb(0,0,200);
 		background:var(--color-one);
 	}
 	
@@ -19,7 +19,7 @@
 		bottom:0;
 		left:0;
 		background:var(--color-one);
-		border-top:2px solid var(--color-three);
+		/*border-top:2px solid var(--color-three);*/
 		width:100vw;
 		padding:0.5em;
 	}
@@ -145,12 +145,12 @@
 				13, 90
 			),
 			'C'=>array(
-				rand(70,72), rand(58,73), 
-				rand(70,75), rand(80,88), 
-				rand(20,24), rand(73,79), 
-				rand(18,20), rand(22,27), 
-				rand(77,80), rand(10,20), 
-				rand(64,70), rand(43,48)
+				72, 58, 
+				75, 80, 
+				24, 73, 
+				18, 22, 
+				77, 14, 
+				64, 43
 			),
 			'D'=>array(
 				70, 79, 
@@ -214,7 +214,12 @@
 				90, 5
 			),
 			'L'=>array(
-				10, 10, 15, 50, 11, 90, 50, 84, 75, 91, 70, 70
+				10, 10, 
+				15, 50, 
+				11, 90, 
+				50, 84, 
+				75, 91, 
+				70, 70
 			),
 			'M'=>array(
 				15, 80, 
