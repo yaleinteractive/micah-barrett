@@ -4,7 +4,7 @@
 <title>Overlap</title>
 <style>
 	body{
-		background:rgb(30,30,30);
+		background:rgb(230,230,230);
 	}
 	div{
 		position:fixed;
@@ -14,7 +14,8 @@
 		text-align:center;
 		font-size:40vw;
 		font-family:"Gothic 523";
-		mix-blend-mode: difference;
+		mix-blend-mode: screen;
+		filter:blur(50px);
 
 
 	}
