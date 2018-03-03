@@ -21,7 +21,7 @@
 
 	.controller-nav{
 		position:fixed;
-		z-index:999999;
+		z-index:999;
 		bottom:0;
 		background:var(--pop-color);
 		width:100%;
@@ -74,6 +74,11 @@
 
 </head>
 <body>
+
+	<?php 
+		include '../nav.php';
+	 ?>
+
 	<?php 
 
 		$word = $_GET['word'];

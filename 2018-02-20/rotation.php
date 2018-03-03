@@ -73,7 +73,7 @@
 	}
 
 	.controls{
-		display:flex;
+		/*display:flex;*/
 		width:100vw;
 		z-index:10;
 	}
@@ -84,7 +84,6 @@
 
 	input{
 		flex:1;
-		width:33%;
 		font-family:menlo;
 		font-size:1em;
 	}
@@ -148,7 +147,7 @@
 
 	 ?>
 	<nav class="controller-nav">
-		<!-- <a class="controller-nav__trigger">^</a> -->
+
 	
 		 <form class="controls" method="get">
 		 	<label> Letter

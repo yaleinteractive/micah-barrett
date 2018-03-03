@@ -27,7 +27,7 @@
 
 	.controller-nav{
 		position:fixed;
-		z-index:1000000;
+		z-index:1000;
 		top:0;
 	}
 	

@@ -15,7 +15,7 @@
 	
 	.controller-nav{
 		position:fixed;
-		z-index:1000000;
+		z-index:1000;
 		bottom:0;
 		left:0;
 		background:var(--color-one);
