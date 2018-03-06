@@ -27,6 +27,10 @@
 		width:100%;
 		padding:0.5em;
 	}
+
+	.unit svg{
+		fill:red!important;
+	}
 	
 	label,input{
 		font-family:menlo;
@@ -35,6 +39,10 @@
 	
 	label{
 		color:var(--bg-color);
+	}
+
+	input[type=number]{
+		max-width:8em;
 	}
 
 	input[type=number],
@@ -63,10 +71,18 @@
 	@media print{
 		body{
 			background:none;
-			margin:0.125in;
+			margin:0in;
 			width:100%;
 		}
 		.controller-nav{
+			display:none;
+		}
+
+		.global-nav__trigger{
+			display:none;
+		}
+
+		.global-nav{
 			display:none;
 		}
 	}
@@ -96,7 +112,7 @@
 			for ($i=0; $i < $strlen ; $i++) { 
 				// drawUnit(strtoupper($word[$i]));
 				echo '<div style="width:'.$size.'vw;">';
-				echo '<img src="assets/svg/'.$word[$i].'.svg">';
+				echo '<img class="unit" src="assets/svg/'.$word[$i].'.svg">';
 				echo "</div>";
 			}
 			$counter++;
@@ -105,13 +121,13 @@
 
 	 <nav class="controller-nav">
 	 	<form method="get" class="controls">
-	 		<label> text
+	 		<label> input
 		 		<input name="word" type="text" value="<?php echo $word ?>">
 	 		</label>
-	 		<label>number	
+	 		<label>repeats	
 		 		<input name="number" type="number" value="<?php echo $number ?>">
 	 		</label>
-	 		<label>size	
+	 		<label>column width %	
 		 		<input name="size" type="number" value="<?php echo $size ?>">
 	 		</label>
 	 		<input type="submit">

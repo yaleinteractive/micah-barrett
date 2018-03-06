@@ -102,6 +102,23 @@
 	svg polygon{
 		vector-effect: non-scaling-stroke;
 	}
+	@media print{
+
+		svg{
+			width:170pt;
+		}
+		.controller-nav{
+			display:none;
+		}
+
+		.global-nav__trigger{
+			display:none;
+		}
+
+		.global-nav{
+			display:none;
+		}
+	}
 </style>
 </head>
 <body>
@@ -403,17 +420,27 @@
 				80, 90
 			),
 			'S'=>array(
-				30, 55, 
-				10, 80, 
-				50, 90, 
-				70, 80, 
-				90, 50, 
-				50, 45, 
-				20, 30, 
-				40, 10, 
-				50, 15, 
-				70, 20, 
-				80, 30 
+				10, 60,
+				10, 90,
+				20, 90,
+				40, 90,
+				50, 90,
+				80, 90,
+				80, 75,
+				80, 60,
+				50, 50,
+				10, 38,
+				10, 20,
+				10, 10,
+				30, 10,
+				40, 10,
+				50, 10,
+				70, 10,
+				80, 10,
+				80, 30,
+				80, 35
+
+
 			),
 			'T'=>array(
 				5,10,
