@@ -22,7 +22,7 @@
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "{$row['id']}. {$row['date']}: {$row['title']}<br>";
+
 
             echo "<h1>";
             echo "{$row['title']}";
@@ -34,6 +34,10 @@
 
             echo "<p>";
             echo $row['description'];
+            echo "</p>";
+            
+            echo "<p>";
+            echo $row['location'];
             echo "</p>";
         }
     } else {

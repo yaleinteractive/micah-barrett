@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+	body{
+		--gray:#8c7e6b;
+		--red:#f25440;
+		--green:#69ac61;
+		--gold:#7e5b2e;
+		--black:#282828;
+	}
+	img{
+		position:fixed;
+		mix-blend-mode: multiply;
+		max-width:100%;
+		/*transition:all 0.4s ease-in-out;*/
+	}
+
+	nav{
+		position:fixed;
+		display:flex;
+		flex-direction:column;
+	}
+
+	button{
+		border-radius:0;
+		border:none;
+		padding:1em;
+		height:10vh;
+	}
+
+	button:active{
+		transform:scale(0.9);
+	}
+
+	button:focus{
+		outline:1px solid white;
+	}
+
+	button.deactivated{
+		opacity:0.3;
+	}
+
+	#green{
+		background:var(--green);
+	}
+	#red{
+		background:var(--red);
+	}
+
+	#gold{
+		background:var(--gold);
+	}
+
+	#black{
+		background:var(--black);
+	}
+
+	#gray{
+		background:var(--gray);
+	}
+	
+	#reset{
+		border:1px solid black;
+	}
+	.hidden{
+		display:none;
+	}
+</style>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+ 
+</head>
+<body>
+	<img class="green" src="green.jpg" alt="">
+	<img class="gray" src="gray.jpg" alt="">
+	<img class="gold" src="gold.jpg" alt="">
+	<img class="black" src="black.jpg" alt="">
+	<img class="red" src="red.jpg" alt="">
+	
+
+	<nav>
+		<button class="color-plate" id="green"></button>
+		<button class="color-plate" id="red"></button>
+		<button class="color-plate" id="gray"></button>
+		<button class="color-plate" id="gold"></button>
+		<button class="color-plate" id="black"></button>
+		<button id="reset">r</button>
+	</nav>
+	<script>
+		$( document ).ready(function() {
+			$('img').draggable();
+			$('#green').click(function(){
+				$('.green').toggleClass('hidden');
+			});
+			$('#red').click(function(){
+				$('.red').toggleClass('hidden');
+			});
+			$('#gray').click(function(){
+				$('.gray').toggleClass('hidden');
+			});
+			$('#gold').click(function(){
+				$('.gold').toggleClass('hidden');
+			});
+			$('#black').click(function(){
+				$('.black').toggleClass('hidden');
+			});
+
+			$('#reset').click(function(){
+				$('img').css('top','0');
+				$('img').css('left','0');
+			});
+
+			$('.color-plate').click(function(){
+				$(this).toggleClass('deactivated');
+			});
+		});
+
+
+		function makeAPile(){
+			var top = getRandomInt(-200, window.innerHeight);
+			var left = getRandomInt(-200, window.innerWidth);
+
+
+		}
+
+		function getRandomInt(min, max) {
+			  min = Math.ceil(min);
+			  max = Math.floor(max);
+			  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+		}
+
+	</script>
+
+	 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</body>
+</html>
