@@ -29,9 +29,8 @@
             echo "<h2>";
             echo $row['date'];
             echo "</h2>";
-
-          
         }
+        
     } else {
         echo "No events";
     }

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="style/site.css">
 <style>
 	body{
-		--gray:#8c7e6b;
-		--red:#f25440;
-		--green:#69ac61;
-		--gold:#7e5b2e;
+		--yellow:#ffde00;
+		--red:#e91503;
+		--green:#0ba6ab;
+		--blue:#0278e6;
 		--black:#282828;
+		--violet:#9a35ec;
 	}
 	img{
 		position:fixed;
 		mix-blend-mode: multiply;
-		max-width:100%;
+		max-width:80%;
 		/*transition:all 0.4s ease-in-out;*/
 	}
 
@@ -39,26 +40,39 @@
 	}
 
 	button.deactivated{
-		opacity:0.3;
+		background:white!important;
 	}
 
 	#green{
 		background:var(--green);
+		border:1px solid var(--green);
 	}
 	#red{
 		background:var(--red);
+		border:1px solid var(--red);
 	}
 
-	#gold{
-		background:var(--gold);
+	#blue{
+		background:var(--blue);
+		border:1px solid var(--blue);
+
 	}
 
 	#black{
 		background:var(--black);
+		border:1px solid var(--black);
+
 	}
 
-	#gray{
-		background:var(--gray);
+	#yellow{
+		background:var(--yellow);
+		border:1px solid var(--yellow);
+
+	}
+
+	#violet{
+		background:var(--violet);
+		border:1px solid var(--violet);
 	}
 	
 	#reset{
@@ -73,21 +87,20 @@
  
 </head>
 <body>
-	<img class="green" src="green.jpg" alt="">
-	<img class="gray" src="gray.jpg" alt="">
-	<img class="gold" src="gold.jpg" alt="">
-	<img class="black" src="black.jpg" alt="">
-	<img class="red" src="red.jpg" alt="">
+
+	<img class="plate blue" src="img/bird/bird-blue.jpg" alt="">
+	<img class="plate blue" src="img/pot/pot-blue.jpg" alt="">
+
+
+
+
+
+	
 	
 
-	<nav>
-		<button class="color-plate" id="green"></button>
-		<button class="color-plate" id="red"></button>
-		<button class="color-plate" id="gray"></button>
-		<button class="color-plate" id="gold"></button>
-		<button class="color-plate" id="black"></button>
-		<button id="reset">r</button>
-	</nav>
+	
+
+	<?php include "nav.php"; ?>
 	<script>
 		$( document ).ready(function() {
 			$('img').draggable();
@@ -97,14 +110,17 @@
 			$('#red').click(function(){
 				$('.red').toggleClass('hidden');
 			});
-			$('#gray').click(function(){
-				$('.gray').toggleClass('hidden');
+			$('#yellow').click(function(){
+				$('.yellow').toggleClass('hidden');
 			});
-			$('#gold').click(function(){
-				$('.gold').toggleClass('hidden');
+			$('#blue').click(function(){
+				$('.blue').toggleClass('hidden');
 			});
 			$('#black').click(function(){
 				$('.black').toggleClass('hidden');
+			});
+			$('#violet').click(function(){
+				$('.violet').toggleClass('hidden');
 			});
 
 			$('#reset').click(function(){
@@ -118,12 +134,15 @@
 		});
 
 
-		function makeAPile(){
-			var top = getRandomInt(-200, window.innerHeight);
-			var left = getRandomInt(-200, window.innerWidth);
+		$('#scramble').click(function(){
+			$('.plate').each(function(){
+				var top = getRandomInt(-200, window.innerHeight);
+				var left = getRandomInt(-200, window.innerWidth);
+				$(this).css('top', top);
+				$(this).css('left', left);
+			});
+		});
 
-
-		}
 
 		function getRandomInt(min, max) {
 			  min = Math.ceil(min);

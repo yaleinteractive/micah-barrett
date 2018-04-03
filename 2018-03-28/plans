@@ -1,0 +1,32 @@
+
+
+
+PIECES
+id | filename | type_id | date uploaded
+
+Store the file in pieces/$id/$filename
+
+TYPES
+id | photo | scrap | shape | letter
+
+COMPOSITIONS
+id | date created | date saved | ?representative image?
+
+PLACEMENTS
+id | composition_id | piece_id | top | left | rotation
+
+
+<input type="text" name="placements" id="placements">
+<input type="submit" value="Save">
+
+Every time the user adds, moves, or rotates a placement, in JavaScript set $('#placements').value = JSON.stringify(placements);
+
+
+Prepopulate some pieces
+Prepopulate a composition with some placements
+
+1. Show the one composition. Allow moving the placements and updating the composition. No adding pieces or placements.
+2. Allow adding placements to the existing composition, from the existing available pieces.
+3. Allow listing multiple compositions and choosing the one to work on.
+4. Allow creating a new composition.
+5. Allow uploading new pieces.

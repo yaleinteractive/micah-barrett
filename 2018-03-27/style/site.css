@@ -1,0 +1,59 @@
+body{
+	margin:0;
+}
+
+.item-meta-data{
+	width:33vw;
+	/*background:red;*/
+	position:fixed;
+	right:0;
+	mix-blend-mode: multiply;
+
+}
+
+.item-meta-data ul{
+	list-style:none;
+	padding:0;
+}
+
+.item-meta-data li{
+	font-family:'atlas typewriter';
+	color:gray;
+	font-size:24px;
+	border-bottom:1px solid gray;
+	-webkit-font-smoothing:antialiased;
+	padding:0.25em 0;
+}
+
+.global-nav{
+	width:100%;
+	position:fixed;
+	bottom:0;
+	/*mix-blend-mode: multiply;*/
+
+
+}
+
+.global-nav ul{
+	list-style:none;
+	padding:0;
+	margin:0;
+	display:flex;
+}
+
+.global-nav ul li{
+	width:33%;
+
+}
+
+.global-nav ul li a{
+	display:block;
+	padding:0.5em;
+	text-decoration:none;
+	color:gray;
+	font-family:"atlas typewriter";
+	/*border-top:1px dashed gray;*/
+	background:white;
+	-webkit-font-smoothing:antialiased;
+
+}

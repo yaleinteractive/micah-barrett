@@ -122,6 +122,11 @@
 			2018-03-04 iFrames
 		</a>
 	</li>
+	<li>
+		<a href="../2018-02-25/variable-font.php">
+			2018-04-02 Variable Font
+		</a>
+	</li>
 </nav>
 
 <script>
