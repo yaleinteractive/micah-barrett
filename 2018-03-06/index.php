@@ -1,3 +1,17 @@
+<?php 
+
+
+    if($_COOKIE['visited_before'] == 'Yes'){
+        $visited_before = true;
+    }
+    else{
+        setcookie('visited_before', 'Yes');
+    }
+
+ ?>
+
+
+
 <html>
 <head>
     
@@ -7,7 +21,8 @@
     <?php
     include "connect.php";
 
-    
+    include "insert.php";
+    include "track_session.php";
     // ALWAYS sepcifiy an order
     // * is all columns
     // FROM events - always specify the table names
@@ -36,6 +51,15 @@
     }
     $conn->close();
     ?>
+
+    <h2>Add an event</h2>
+    <form>
+        <label>Title <input type="text" name="title"></label><br>
+        <label>Date <input type="date" name="date"></label><br>
+        <label>Time <input type="time" name="time"></label><br>
+        <label>Description<br> <textarea name="description" id="" cols="30" rows="10"></textarea></label><br>
+        <input type="submit" value="Add">
+    </form>
 
 </body>
 </html>

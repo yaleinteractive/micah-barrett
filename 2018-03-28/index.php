@@ -2,6 +2,7 @@
 	<?php 
 		include "header.php";
  		include "connect.php";
+ 		include "insert.php";
 
 		$sql = "SELECT * FROM pieces ORDER by uploaded_date ASC";
 	    $result = $conn->query($sql);
@@ -12,11 +13,11 @@
 
 			    echo "<div class='wrapper'>";
 	        	
-	            echo "<div>";
-	            echo "<h1>";
-	            echo "{$row['id']} ";
-	            echo "{$row['title']} ";
-	            echo "</h1>";
+
+	            // echo "<h1>";
+	            // echo "{$row['id']} ";
+	            // echo "{$row['title']} ";
+	            // echo "</h1>";
 	            echo "<img class='placed' src='uploads/{$row['filename']}'>";
 	            echo "</div>";
 	        }
@@ -27,7 +28,7 @@
 	        echo "<ul id='drawer_list'>";
 	        while($row = $result->fetch_assoc()) {
 	        	echo "<li>";
-	        	echo "<img src='uploads/{$row['filename']}'>";
+	        	echo "<img class='drawer_item' src='uploads/{$row['filename']}'>";
 	        	echo "</li>";
 	        }
 	        echo "</ul>";
@@ -48,8 +49,13 @@
 
 	    $conn->close();
 
-	    include "scripts.php";
+	    
     ?>
-	<button class="rotate">rotate</button>
-</body>
-</html>
+	<?php include "footer.php"; ?>
+
+	<h2>Add a piece</h2>
+    <form>
+        <label>Title <input type="text" name="title"></label><br>
+        <label>Filename <input type="text" name="filename"></label><br>
+        <input type="submit" value="Add">
+    </form>

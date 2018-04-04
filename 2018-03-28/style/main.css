@@ -1,5 +1,14 @@
+@import "drawer.css";
+@import "typography.css";
+
+
 body{
 	margin:0;
+	display:grid;
+}
+
+.content-wrapper{
+	position:relative;
 }
 
 h1{
@@ -7,63 +16,26 @@ h1{
 }
 
 img{
-	max-width:50%;
+	max-width:100%;
 	mix-blend-mode: multiply;
 }
+
+
 
 .selected{
 	outline:1px solid red;
 }
 
-.drawer{
-	position:fixed;
-	z-index:99999;
-	bottom:0;
-	transition:bottom 0.4s ease-in-out;
-}
-
-
-.drawer_title{
-	background:white;
-	margin:0;
-	padding:0.5em;
-	border-bottom:1px solid black;
-	border-top:1px solid black;
-	cursor:pointer;
-	font-weight:normal;
-	text-transform:uppercase;
-	letter-spacing: 0.05em;
-}
-
-
-.drawer ul{
-	list-style:none;
-	display:flex;
-	background:red;
-	padding:0;
-	margin:0;
-}
-
-
-
-.drawer li{
-	display:flex;
-	background:white;
-	align-items:center;
-	justify-content:center;
-}
-
-.drawer li img{
-	max-width:25%;
-}
-
-.drawer li img:hover{
-	transform:scale(1.1);
-}
 
 
 .rotate{
 	position:fixed;
 	top:0;
 	right:0;
+}
+
+.image-wrapper{
+	transform-origin:50% 50%;
+	position:absolute;
+	mix-blend-mode: multiply;
 }

@@ -1,0 +1,46 @@
+@font-face{
+	font-family:"Gothic 523";
+	src:url('assets/gothic-523-beta.otf');
+	font-weight:500;
+	font-style:normal;
+}
+
+:root{
+	--sans:"gothic 523";
+	--small-text:14px;
+	--regular-text:24px;
+	--large-text:32px;
+	--x-large-text:48px;
+	--x-x-large-text:72px;
+	--jumbo-text:120px;
+}
+
+h3{
+	font-family:var(--sans);
+	font-size:var(--x-large-text);
+	font-weight:normal;
+}
+
+h2{
+	font-family:var(--sans);
+	font-size:var(--x-large-text);
+	font-weight:normal;
+}
+
+label{
+	font-family:var(--sans);
+	font-size:24px;
+}
+
+input[type="submit"]{
+	font-family:var(--sans);
+	font-size:24px;
+	background:white;
+	border:1px solid black;
+}
+
+input[type="text"]{
+	font-family:var(--sans);
+	font-size:24px;
+	margin-bottom:1em;
+}

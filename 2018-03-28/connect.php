@@ -17,7 +17,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    echo 'connected!';
+    // echo 'connected!';
     
     // echo $currentDir;
 
