@@ -53,11 +53,12 @@
     ?>
 
     <h2>Add an event</h2>
-    <form>
+     <form enctype="multipart/form-data" method="post">
         <label>Title <input type="text" name="title"></label><br>
         <label>Date <input type="date" name="date"></label><br>
         <label>Time <input type="time" name="time"></label><br>
         <label>Description<br> <textarea name="description" id="" cols="30" rows="10"></textarea></label><br>
+        <label >Image <br><input type="file" name="image"></label>
         <input type="submit" value="Add">
     </form>
 

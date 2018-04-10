@@ -1,4 +1,6 @@
 
+
+
 	<?php 
 		include "header.php";
  		include "connect.php";
@@ -9,8 +11,8 @@
 	    $minutes = date("i");
 	    $day_of_month = date("d");
 	    $rotation = $seconds * 6;
-	    $scale = $day_of_month / 30;
-	    $left = $minutes;
+	    $scale = $day_of_month / 5;
+	    $left = $minutes/2;
 
 		$sql = "SELECT * FROM pieces WHERE composition_id = $id ORDER by uploaded_date ASC";
 	    $result = $conn->query($sql);
@@ -19,11 +21,14 @@
 	        while($row = $result->fetch_assoc()) {
 
 			    echo 
-			    	"<div class='image-wrapper' style='position:absolute; top:0px; left:".-$left."vw; transform:scale(".$scale.") rotate(".$rotation."deg);'>
+			    	"<div class='image-wrapper' style='left:".$left."vw;transform:rotate(".$rotation."deg);'>
 	            		<img class='placed' src='uploads/{$row['filename']}'>
 	            	</div>";
 	            $rotation = $rotation + $rotation;
-	            $left = $left + $minutes;
+	            $left = $left + $left;
+	            if ($rotatione >= 360) {
+	            	$rotation = 0;
+	            }
 	        }
 
 		    $result->data_seek(0);
@@ -49,12 +54,8 @@
 	    
     ?>
 
+	
 
 	<?php include "footer.php"; ?>
 
-	<h2>Add a piece</h2>
-    <form>
-        <label>Title <br><input type="text" name="title"></label><br>
-        <label>Filename <br><input type="text" name="filename"></label><br>
-        <input type="submit" value="Add">
-    </form>
+	<button>Upload a Piece</button>

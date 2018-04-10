@@ -1,0 +1,24 @@
+.pieces-drawer{
+	padding:0em 0.5em 10em 0.5em;
+	border-top:1px solid black;
+	z-index:30;
+}
+
+.pieces-drawer_title{
+	font-size:var(--large-text);
+	text-transform: uppercase;
+	margin:0.5em 0em;
+}
+
+.piece-in-the-drawer:active{
+	transform:scale(0.9);
+}
+
+.pieces-drawer_wrapper{
+	display:grid;
+	grid-template-columns: repeat(12, 1fr)
+}
+
+.piece-in-the-drawer.selected{
+	/*border:1px solid red;*/
+}

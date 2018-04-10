@@ -5,8 +5,16 @@
 	font-style:normal;
 }
 
+@font-face{
+	font-family:"variable";
+	src:url('assets/test-light.ttf');
+	font-weight:200;
+	font-style:normal;
+}
+
 :root{
 	--sans:"gothic 523";
+	--variable:"variable";
 	--small-text:14px;
 	--regular-text:24px;
 	--large-text:32px;
@@ -15,28 +23,34 @@
 	--jumbo-text:120px;
 }
 
-h3{
+h1,h2,h3,h4,h5,h6,p,li,a,button,label, input{
 	font-family:var(--sans);
-	font-size:var(--x-large-text);
 	font-weight:normal;
+	font-variation-settings:"brkn" 500;
 }
 
-h2{
-	font-family:var(--sans);
-	font-size:var(--x-large-text);
-	font-weight:normal;
-}
+
 
 label{
 	font-family:var(--sans);
 	font-size:24px;
 }
 
-input[type="submit"]{
+input[type="submit"],
+button{
 	font-family:var(--sans);
-	font-size:24px;
+	font-size:32px;
 	background:white;
 	border:1px solid black;
+	text-transform:uppercase;
+}
+
+button:focus{
+	outline:3px solid black;
+}
+
+button:active{
+	transform:scale(0.9);
 }
 
 input[type="text"]{

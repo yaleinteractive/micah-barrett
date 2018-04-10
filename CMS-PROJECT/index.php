@@ -4,22 +4,19 @@
  		include "connect.php";
  		include "insert.php";
 
-		$sql = "SELECT * FROM pieces ORDER by uploaded_date ASC";
-	    $result = $conn->query($sql);
+		$compositions = "SELECT * FROM pieces ORDER by id ASC";
+	    $result = $conn->query($compositions);
 
+	    $pieces = "SELECT * FROM pieces ORDER by date_uploaded ASC";
+	    
 	    if ($result->num_rows > 0) {
 	        // output data of each row
 	        while($row = $result->fetch_assoc()) {
 
-			    echo "<div class='wrapper'>";
+	        	echo "hey";
 	        	
 
-	            // echo "<h1>";
-	            // echo "{$row['id']} ";
-	            // echo "{$row['title']} ";
-	            // echo "</h1>";
-	            echo "<img class='placed' src='uploads/{$row['filename']}'>";
-	            echo "</div>";
+	       
 	        }
 
 		    $result->data_seek(0);
