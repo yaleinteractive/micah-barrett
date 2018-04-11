@@ -1,61 +1,41 @@
 
 
-
-	<?php 
-		include "header.php";
- 		include "connect.php";
- 		include "insert.php";
-
-	    $id = $_GET['id'];
-	    $seconds = date("s");
-	    $minutes = date("i");
-	    $day_of_month = date("d");
-	    $rotation = $seconds * 6;
-	    $scale = $day_of_month / 5;
-	    $left = $minutes/2;
-
-		$sql = "SELECT * FROM pieces WHERE composition_id = $id ORDER by uploaded_date ASC";
-	    $result = $conn->query($sql);
-
-	    if ($result->num_rows > 0) {
-	        while($row = $result->fetch_assoc()) {
-
-			    echo 
-			    	"<div class='image-wrapper' style='left:".$left."vw;transform:rotate(".$rotation."deg);'>
-	            		<img class='placed' src='uploads/{$row['filename']}'>
-	            	</div>";
-	            $rotation = $rotation + $rotation;
-	            $left = $left + $left;
-	            if ($rotatione >= 360) {
-	            	$rotation = 0;
-	            }
-	        }
-
-		    $result->data_seek(0);
-	        echo "<nav class='drawer'>";
-	        echo "<h3 class='drawer_title'>Pieces</h3>";
-	        echo "<ul id='drawer_list'>";
-	        while($row = $result->fetch_assoc()) {
-	        	echo "<li>";
-	        	echo "<img class='drawer_item' src='uploads/{$row['filename']}'>";
-	        	echo "</li>";
-	        }
-	        echo "</ul>";
-	        echo "</nav>";
-	        echo "</div>";
-
-
-	    } else {
-	        echo "No pieces";
-	    }
-
-
-	    $conn->close();
-	    
-    ?>
+<?php 
+ 	include "header.php";
+	include "connect.php";
 
 	
+	$id = $_GET['id'];
+	$counter = 2;
+	$rotation = 30;
+	// $minute = date('i');
+	$minute = 1;
+	$left = $minute/2;
 
-	<?php include "footer.php"; ?>
+	echo "<h1>$id</h1>";
 
-	<button>Upload a Piece</button>
+	echo "<div class='composition_wrapper'>";
+	$sql = "SELECT pieces.*, placements.* FROM pieces, placements WHERE composition_id = $id";
+	  $result = $conn->query($sql);
+	  // If there is at least 1 row in the result, show all the rows
+	  if ($result->num_rows > 0) {
+	      // Get one row at a time until we're out of rows
+	      while ($row = $result->fetch_assoc()) {
+
+	      echo "<img class='placed-pieces' style='left:".$left."%;transform:rotate(".$rotation."deg);' src='uploads/{$row['piece_id']}/{$row['image']}'>";
+	      $rotation++;
+	      $left = $left +1;
+
+	      }
+	  } else {
+	      echo "No placements";
+	}
+	echo "</div>";
+
+
+	
+	$conn->close();
+	
+ ?>
+
+	

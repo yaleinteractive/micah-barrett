@@ -17,8 +17,16 @@ body{
 
 
 img{
-	max-width:100%;
+	max-width:40%;
 	mix-blend-mode: multiply;
+}
+
+img.thumbnail{
+	max-width:200px;
+}
+
+img.placed-pieces{
+	position:absolute;
 }
 
 a:link,

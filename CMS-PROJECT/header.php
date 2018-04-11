@@ -7,4 +7,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
+
+<nav>
+	<a href="pieces.php">add a piece</a>
+	<a href="placements.php">add a placement</a>
+	<a href="composition.php?id=1">look at a composition</a>
+</nav>
 <section class="content-wrapper">
+

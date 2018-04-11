@@ -1,18 +1,26 @@
-<?php 
-	$title = $_GET["title"];
-	$filename = $_GET["filename"];
-	$time = $_GET["time"];
+<?php
+  $image = basename($_FILES['image']['name']);
 
-
-	
-	// If a title and a date were specified, insert a new event into the database
-	if ($filename) {
-		
-		// CONSTRUCT SQL to insert new row
-		$sql = "INSERT INTO pieces (title,filename) VALUES('$title','$filename')";
-
-		// Run the SQL
-		$result = $conn->query($sql);
-		echo "<h2>piece added!</h2>";
-	}
- ?>
+  // If a title and a date were specified, insert a new event
+  // into the database
+  if ($image) {
+    // Construct SQL to insert a new row
+    $sql = "INSERT INTO pieces (image)
+                               VALUES('$image')";
+    // Run the SQL
+    $result = $conn->query($sql);
+     $id = $conn->insert_id;
+    if ($image) {
+    	$uploaddir = dirname(__FILE__) . "/uploads/$id";
+    	mkdir($uploaddir);
+    	$success = move_uploaded_file($_FILES['image']['tmp_name'], "$uploaddir/$image");
+    	// echo '<pre>';
+    	// if ($success) {
+    	//   echo "File is valid, and was successfully uploaded.\n";
+    	// }
+    	// echo 'Here is some more debugging info:';
+    	// print_r($_FILES);
+    	// print "</pre>";
+    }
+    echo "<h2>another piece</h2>";
+  }
