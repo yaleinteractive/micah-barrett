@@ -3,13 +3,14 @@
 <?php 
  	include "header.php";
 	include "connect.php";
+ 	include "insert-placement.php";
 
-	
+
 	$id = $_GET['id'];
 	$counter = 2;
 	$rotation = 30;
-	// $minute = date('i');
-	$minute = 1;
+	$minute = date('i');
+
 	$left = $minute/2;
 
 	echo "<h1>$id</h1>";
@@ -32,8 +33,25 @@
 	}
 	echo "</div>";
 
+	$sql_2 = "SELECT * FROM pieces ORDER BY id";
+	$result_2 = $conn->query($sql_2);
 
-	
+	echo '<form class="piece-drawer" enctype="multipart/form-data" method="post">
+      		<label>Add a Piece<br> ';
+
+	if ($result_2->num_rows > 0) {
+		while ($row = $result_2->fetch_assoc()) {
+			echo "piece {$row['id']} "; 
+			echo '<input type="radio" name="piece_id"'; 
+			echo "value='";
+			echo "{$row['id']}";
+			echo "'>";
+		}
+	}
+
+	echo "<input type='hidden' value='$id' name='composition_id'><br>
+      <input type='submit' value='Add'></form>";
+
 	$conn->close();
 	
  ?>
