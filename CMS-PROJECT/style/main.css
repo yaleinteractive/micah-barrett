@@ -18,7 +18,11 @@ body{
 	font-size:120px;
 	z-index:200;
 	text-align:center;
-	line-height:0.9;
+	line-height:1.0;
+}
+
+a.next:link, a.next:visited{
+	border-bottom:2px solid black;
 }
 
 

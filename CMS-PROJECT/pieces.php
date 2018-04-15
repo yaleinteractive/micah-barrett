@@ -1,11 +1,20 @@
 <h1>Pieces library</h1>
 
+<h2>Add a new piece</h2>
+
+	  <form enctype="multipart/form-data" method="post">
+      <label>Image <input type="file" name="image"></label><br>
+      <input type="submit" value="Add">
+  	  </form>
+
 <?php 
  	include "header.php";
 	include "connect.php";
  	include "insert.php";
+ 	include "global-nav.php";
 
-	$sql = "SELECT * FROM pieces ORDER BY id";
+ 	echo "<div class='pieces-container'>";
+	$sql = "SELECT * FROM pieces ORDER BY id DESC";
 	  $result = $conn->query($sql);
 	  // If there is at least 1 row in the result, show all the rows
 	  if ($result->num_rows > 0) {
@@ -21,12 +30,12 @@
 	  } else {
 	      echo "No pieces";
 	}
+
+	echo "</div>";
 	$conn->close();
+
+ 	include "scripts.php";
+	
  ?>
 
-	 <h2>Add a piece</h2>
-
-	  <form enctype="multipart/form-data" method="post">
-      <label>Image <input type="file" name="image"></label><br>
-      <input type="submit" value="Add">
-  	  </form>
+	 
