@@ -18,9 +18,13 @@
 
 .pieces-drawer_wrapper{
 	display:grid;
-	grid-template-columns: repeat(12, 1fr)
+	grid-template-columns: repeat(12, 1fr);
 }
 
+.pieces-drawer{
+	/*display:grid;*/
+	/*grid-template-columns: repeat(12,1fr);*/
+}
 .piece-in-the-drawer.selected{
 	/*border:1px solid red;*/
 }
@@ -32,4 +36,9 @@
 .drawer-image{
 	max-width:10vw;
 
+}
+
+@media screen and (max-width:700px) {
+
+	
 }

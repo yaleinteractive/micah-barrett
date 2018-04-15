@@ -8,9 +8,4 @@
 </head>
 <body>
 
-<nav>
-	<a href="pieces.php">add a piece</a>
-	<a href="placements.php">add a placement</a>
-	<a href="composition.php?id=1">look at a composition</a>
-</nav>
 

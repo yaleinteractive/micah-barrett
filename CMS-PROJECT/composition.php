@@ -44,7 +44,7 @@
 
 	      }
 	  } else {
-	      echo "No placements";
+	      echo "<h2 class='announcement'>Add some pieces!</h2>";
 	}
 	echo "</div>";
     echo "</section>";
