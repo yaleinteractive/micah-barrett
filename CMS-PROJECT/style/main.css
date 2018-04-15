@@ -14,11 +14,6 @@ body{
 	width:100%;
 }
 
-.piece-drawer{
-	position:fixed;
-	bottom:0;
-	z-index:10;
-}
 
 img{
 	max-width:40%;

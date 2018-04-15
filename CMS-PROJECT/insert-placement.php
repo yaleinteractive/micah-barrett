@@ -10,9 +10,12 @@
 
     // Construct SQL to insert a new row
     $sql = "INSERT INTO placements (piece_id, composition_id)
-                               VALUES('$piece_id','$composition_id')";
+            VALUES('$piece_id','$composition_id')";
     // Run the SQL
     $result = $conn->query($sql);
+    $sql2 = "INSERT INTO composition(id)
+             VALUES('$composition_id')";
+    $result2 = $conn->query($sql2);
 
     
     echo "<h2>Placement added</h2>";

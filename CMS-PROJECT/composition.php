@@ -6,6 +6,7 @@
  	include "insert-placement.php";
 
 
+
 	$id = $_GET['id'];
 	$counter = 2;
 	$rotation = 30;
@@ -18,6 +19,9 @@
 	echo "<h1>$id</h1>";
 
 
+
+
+	echo "<section class='content-wrapper'>";
 
 	echo "<div class='composition_wrapper'>";
 	$sql = "SELECT *
@@ -43,27 +47,41 @@
 	      echo "No placements";
 	}
 	echo "</div>";
+    echo "</section>";
+
 
 	$sql_2 = "SELECT * FROM pieces ORDER BY id";
 	$result_2 = $conn->query($sql_2);
 
-	echo '<form class="piece-drawer" enctype="multipart/form-data" method="post">
-      		<label>Add a Piece<br> ';
+	echo '<form class="pieces-drawer" enctype="multipart/form-data" method="post">
+      		<h2>Add a piece</h2>';
 
 	if ($result_2->num_rows > 0) {
 		while ($row = $result_2->fetch_assoc()) {
-			echo "piece {$row['id']} "; 
+			echo "<label class='pieces'>"; 
+			echo "<img class='drawer-image' src='uploads/{$row['id']}/{$row['image']}'> "; 
 			echo '<input type="radio" name="piece_id"'; 
 			echo "value='";
 			echo "{$row['id']}";
-			echo "'>";
+			echo "'></label>";
+
 		}
 	}
 
 	echo "<input type='hidden' value='$id' name='composition_id'><br>
       <input type='submit' value='Add'></form>";
 
+
+    
+	
+
+	include "global-nav.php";
+
+
+
 	$conn->close();
+ 	include "scripts.php";
+
 	
  ?>
 

@@ -13,5 +13,4 @@
 	<a href="placements.php">add a placement</a>
 	<a href="composition.php?id=1">look at a composition</a>
 </nav>
-<section class="content-wrapper">
 
