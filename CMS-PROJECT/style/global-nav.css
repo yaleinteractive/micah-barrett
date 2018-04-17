@@ -2,6 +2,11 @@
 	/*background:red;*/
 	position:fixed;
 	z-index:2;
+	height:10vh;
+	left:0;
+	top:0;
+	margin:0;
+	width:100vw;
 }
 
 .global-nav_trigger{
@@ -9,7 +14,6 @@
 	position:fixed;
 	/*background:red;*/
 	padding:0.5em;
-	width:5vw;
 	right:0;
 	z-index:999;
 	text-align:center;
@@ -45,6 +49,8 @@
 	/*padding:0.5em;*/
 }
 
+
+
 .global-nav.active .global-nav_list{
 	transform:translateY(0vh);
 	z-index:10;
@@ -79,11 +85,9 @@
 }
 
 @media screen and (max-width:700px) {
-	body{
-		background:red;
-	}
+	
 	.global-nav_list{
-		background:blue;
+
 		display:grid;
 		grid-template-columns: 1fr 1fr 1fr;
 

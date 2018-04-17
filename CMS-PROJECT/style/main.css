@@ -49,4 +49,15 @@ a:active{
 	transform:scale(0.9);
 }
 
+time{
+	font-family:var(--sans);
+	font-size:var(--large-text);
+	text-align:center;
+	margin-top:0.5em;
+}
+
+.composition_header{
+	position:absolute;
+	padding-left:0.5em;
+}
 

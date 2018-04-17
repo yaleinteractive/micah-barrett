@@ -9,16 +9,15 @@
 
 	$id = $_GET['id'];
 	$counter = 2;
-	$rotation = 30;
+	$rotation = 0;
 	$minute = date('i');
-	$hour = date('G') - 4;
-	$left = $minute/2;
+	$hour = date('G');
+	$left = $minute;
 	$top = $hour;
 	$scale = $hour / 10;
-
-	echo "<h1>$id</h1>";
-
-
+	$counter = 1;
+	
+	echo "<h1 class='composition_header'>$id</h1>";
 
 
 	echo "<section class='content-wrapper'>";
@@ -35,13 +34,26 @@
 	      // Get one row at a time until we're out of rows
 	      while ($row = $result->fetch_assoc()) {
 
-	      echo "<img class='placed-pieces' style='top:".$top."%;left:".$left."%;transform:rotate(".$rotation."deg) scale(".$scale.");' src='uploads/{$row['piece_id']}/{$row['image']}'>";
+		      echo "<img class='placed-pieces' style='top:".$top."%;left:".$left."%;transform:rotate(".$rotation."deg) scale(".$scale.");' src='uploads/{$row['piece_id']}/{$row['image']}'>";
+
+		      $counter++; 
 
 
-	      $rotation++;
+		      $rotation = $rotation + 20;
+		      $scale = $scale / 2;
+		      $left = $left + 10;
 
+		      if ($scale <= 0.1) {
+		      	$scale = 1.5;
+		      }
+		      if ($left > 61) {
+		      	$left = 0;
+		      	$top = $top * 3;
+		      }
 
-
+		      if ($top > 50 && $scale > 1) {
+		      	$top = -10;
+		      }
 	      }
 	  } else {
 	      echo "<h2 class='announcement'>Add some pieces!</h2>";
@@ -50,7 +62,7 @@
     echo "</section>";
 
 
-	$sql_2 = "SELECT * FROM pieces ORDER BY id";
+	$sql_2 = "SELECT * FROM pieces ORDER BY id DESC";
 	$result_2 = $conn->query($sql_2);
 
 	echo '<form class="pieces-drawer" enctype="multipart/form-data" method="post">

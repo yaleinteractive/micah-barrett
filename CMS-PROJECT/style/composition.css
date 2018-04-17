@@ -1,9 +1,7 @@
-.composition-wrapper{
-	display:grid;
-	grid-template-columns:repeat(4, 1fr);
-	padding:0.5em;
-	min-height:100vh;
-	/*height:100vh;*/
+.composition_wrapper{
+	position:relative;
+	margin-top:-5vh;
+	height:100vh;
 }
 
 

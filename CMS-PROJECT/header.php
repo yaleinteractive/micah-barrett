@@ -8,4 +8,11 @@
 </head>
 <body>
 
+	<?php
+		$hour = date('G');
+		$minute = date('i'); 
+		echo "<time>$hour:$minute</time>";
+
+	 ?>
+
 

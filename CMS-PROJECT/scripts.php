@@ -10,7 +10,7 @@
 					$('.global-nav').css('z-index','999');
 				} else {
 					$(this).html('Index');
-					$('.global-nav').css('z-index','-1');
+					$('.global-nav').css('z-index','1');
 				}
 			});
 
