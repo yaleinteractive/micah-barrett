@@ -1,12 +1,12 @@
 <?php
   $image = basename($_FILES['image']['name']);
-
+  $time_of_day = $_REQUEST['time_of_day'];
   // If a title and a date were specified, insert a new event
   // into the database
   if ($image) {
     // Construct SQL to insert a new row
-    $sql = "INSERT INTO pieces (image)
-                               VALUES('$image')";
+    $sql = "INSERT INTO pieces (image, time_of_day)
+                               VALUES('$image', '$time_of_day')";
     // Run the SQL
     $result = $conn->query($sql);
      $id = $conn->insert_id;
