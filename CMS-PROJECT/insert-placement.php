@@ -18,5 +18,5 @@
     $result2 = $conn->query($sql2);
 
     
-    echo "<h2>Placement added</h2>";
+    // echo "<h2>Placement added</h2>";
   }

@@ -7,7 +7,7 @@
   // If a title and a date were specified, insert a new event
   // into the database
 
-    echo "<h2>Composition added</h2>";
+
 
 
     // Construct SQL to insert a new row
@@ -20,7 +20,7 @@
     $result_6 = $conn->query($sql_6);
     if ($result_6->num_rows > 0){
     	while ($row = $result_6->fetch_assoc()) {
-    		echo "<h2 class='announcement'>Composition Added!<br><a class='next' href='composition.php?id={$row['id']}'>Check it out</a></h2>";
+    		echo "<h2 class='announcement'>Composition {$row['id']} Added!<br><a class='next' href='composition.php?id={$row['id']}'>Check it out</a></h2>";
     	}
     }
 

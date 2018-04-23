@@ -23,6 +23,7 @@
     	}
 
 	}
+	// echo "<li class='global-nav_item'><a href='index.php'>home</a></li>";
 	echo "</ul>";
 	echo "</nav>";
 
