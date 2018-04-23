@@ -26,7 +26,7 @@
 h1,h2,h3,h4,h5,h6,p,li,a,button,label, input{
 	font-family:var(--sans);
 	font-weight:normal;
-	font-variation-settings:"brkn" 1000;
+	font-variation-settings:"brkn" 0;
 }
 
 *:hover{
