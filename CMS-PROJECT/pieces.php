@@ -1,10 +1,10 @@
 <h1>Pieces library</h1>
 
-<h2>Add a new piece</h2>
+<h2>Upload a new piece</h2>
 
 	  <form enctype="multipart/form-data" method="post">
       <label>Image <input type="file" name="image"></label><br>
-      <input type="submit" value="Add">
+      <input type="submit" value="Upload">
   	  </form>
 
 <?php 
@@ -22,9 +22,9 @@
 	      while ($row = $result->fetch_assoc()) {
 
 
-
-	            echo "{$row['id']}<img class='thumbnail' src='uploads/{$row['id']}/{$row['image']}'>";
-
+	      		echo "<div class='piece-index'>";
+	            echo "<span class='piece_number'>{$row['id']}</span><img class='thumbnail' src='uploads/{$row['id']}/{$row['image']}'>";
+	            echo "</div>";
 
 	      }
 	  } else {
@@ -35,7 +35,7 @@
 	$conn->close();
 
  	include "scripts.php";
-	
+
  ?>
 
 	 

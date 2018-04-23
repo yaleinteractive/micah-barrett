@@ -24,7 +24,7 @@
 }
 
 .global-nav_trigger:focus{
-	transform:scale(1.2);
+	/*transform:scale(1.2);*/
 }
 
 .global-nav_list{
@@ -77,11 +77,25 @@
 
 .global-nav_item a:focus{
 	outline:none;
-	transform:scale(1.2);
+	/*transform:scale(1.2);*/
 }
 
 .global-nav_item a:active}{
 	transform:scale(0.9);
+}
+
+
+
+@media screen and (max-width:1280px){
+	.global-nav_list{
+		display:grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+
+	}
+
+	.global-nav_item.new{
+		grid-column:1 / span 4;
+	}
 }
 
 @media screen and (max-width:700px) {
@@ -98,4 +112,11 @@
 	}
 
 }
+
+@media screen and (max-width:450px){
+	.global-nav_item{
+		font-size:var(--x-large-text);
+	}
+}
+
 

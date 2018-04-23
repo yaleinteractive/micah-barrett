@@ -5,6 +5,7 @@
 	include "connect.php";
  	include "insert-placement.php";
 
+ 	date_default_timezone_set('America/New_York');
 
 
 	$id = $_GET['id'];
@@ -17,8 +18,14 @@
 	$scale = $hour / 10;
 	$counter = 1;
 	
+
+	
 	echo "<h1 class='composition_header'>$id</h1>";
 
+
+	echo "<time>$hour:$minute</time>";
+
+	
 
 	echo "<section class='content-wrapper'>";
 
@@ -29,12 +36,13 @@
 			AND pieces.id = placements.piece_id
 			ORDER BY placements.id";
 	  $result = $conn->query($sql);
+	  $total_rows = $result->num_rows;
 	  // If there is at least 1 row in the result, show all the rows
-	  if ($result->num_rows > 0) {
+	  if ($total_rows > 0) {
+	      // echo $total_rows;
 	      // Get one row at a time until we're out of rows
-	      while ($row = $result->fetch_assoc()) {
-
-		      echo "<img class='placed-pieces' style='top:".$top."%;left:".$left."%;transform:rotate(".$rotation."deg) scale(".$scale.");' src='uploads/{$row['piece_id']}/{$row['image']}'>";
+	      while ($row = $result->fetch_assoc()) {	
+		      echo "<img class='placed-pieces' style='top:".$top."px;left:".$left."%;transform:rotate(".$rotation."deg) scale(".$scale.");' src='uploads/{$row['piece_id']}/{$row['image']}'>";
 
 		      $counter++; 
 
@@ -54,6 +62,11 @@
 		      if ($top > 50 && $scale > 1) {
 		      	$top = -10;
 		      }
+
+		      if ($total_rows > 20) {
+		      	$scale = 0.5;
+
+		      }
 	      }
 	  } else {
 	      echo "<h2 class='announcement'>Add some pieces!</h2>";
@@ -62,11 +75,13 @@
     echo "</section>";
 
 
+
+
 	$sql_2 = "SELECT * FROM pieces ORDER BY id DESC";
 	$result_2 = $conn->query($sql_2);
 
 	echo '<form class="pieces-drawer" enctype="multipart/form-data" method="post">
-      		<h2>Add a piece</h2>';
+      		<h2 class="pieces-drawer_title">Insert a piece</h2>';
 
 	if ($result_2->num_rows > 0) {
 		while ($row = $result_2->fetch_assoc()) {
@@ -81,11 +96,11 @@
 	}
 
 	echo "<input type='hidden' value='$id' name='composition_id'><br>
-      <input type='submit' value='Add'></form>";
+      <input type='submit' value='Insert'></form>";
 
 
     
-	
+	echo "<a href='pieces.php'>upload more pieces</a>";
 
 	include "global-nav.php";
 

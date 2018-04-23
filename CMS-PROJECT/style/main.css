@@ -7,6 +7,8 @@
 body{
 	margin:0;
 	display:grid;
+	width:100vw;
+	overflow-x: hidden;
 }
 
 .content-wrapper{
@@ -61,3 +63,22 @@ time{
 	padding-left:0.5em;
 }
 
+.piece_number{
+	font-family:var(--sans);
+	/*margin-left:1em;*/
+	top:0;
+	position:absolute;
+}
+
+.pieces-container{
+	display:grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap:18px;
+	margin:0 auto;
+	width:90vw;
+}
+
+
+.piece-index{
+	position:relative;
+}

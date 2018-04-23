@@ -4,12 +4,17 @@
 	z-index:30;
 	margin-top:0vh;
 	background:white;
+	display:grid;
+	grid-template-columns:repeat(6, 1fr);
+	grid-gap:24px;
 }
 
 .pieces-drawer_title{
 	font-size:var(--large-text);
 	text-transform: uppercase;
 	margin:0.5em 0em;
+	grid-column:1/span 6;
+	text-align:center;
 }
 
 .piece-in-the-drawer:active{
@@ -30,15 +35,56 @@
 }
 
 .pieces{
-	/*background:red;*/
-	margin-right:2em;
-}
-.drawer-image{
-	max-width:10vw;
 
+	text-align:center;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	/*background:gray;*/
+	text-align:center;
+	position:relative;
+
+}
+
+
+.drawer-image{
+	width:100%;
+	margin:0 auto;
+}
+
+input[name=piece_id]{
+	background:red;
+	border:10px solid red;
+
+
+	position:absolute;
+	bottom:0;
+	width:100%;
+	left:45%;
+}
+
+input[type=submit]{
+	height:1.5em;
+}
+
+input[type=hidden]{
+	display:none;
+	grid-column:;
 }
 
 @media screen and (max-width:700px) {
+	.pieces-drawer{
+		display:grid;
+		grid-template-columns:repeat(3, 1fr);
+		
+	}
 
+	.pieces-drawer_title{
+		grid-column:1 / span 3;
+	}
+
+	.drawer-image{
+
+	}
 	
 }
