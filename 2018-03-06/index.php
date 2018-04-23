@@ -3,7 +3,7 @@
   // do it before we output any content,
   // because cookies are sent as part of the
   // HTTP headers, which have to come before the payload.
-  if ($_COOKIE['visited_before'] == 'Yes') {
+  if (isset($_COOKIE['visited_before']) && $_COOKIE['visited_before'] == 'Yes') {
     $visited_before = true;
   }
   else {
@@ -20,10 +20,16 @@
   <?php
   include "connect.php";
   include "track_session.php";
-  include "insert.php";
+  // include "insert.php";
+
+
+
   // Format today's date as YYYY-MM-DD
   $today = date('Y-m-d');
   echo "<h1>Calendar for $today</h1>";
+
+
+
   // Run a SQL query and store the results in $result
   // Always specify an order
   // * - all columns
@@ -52,13 +58,8 @@
 
   <h2>Add an event</h2>
 
-  <form enctype="multipart/form-data" method="post">
-      <label>Title <input type="text" name="title"></label><br>
+  <form  method="get" action="new.php">
       <label>Date <input type="date" name="date"></label><br>
-      <label>Time <input type="time" name="time"></label><br>
-      <label>Description<br>
-        <textarea name="description"></textarea></label><br>
-      <label>Image <input type="file" name="image"></label><br>
       <input type="submit" value="Add">
   </form>
 

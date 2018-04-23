@@ -5,7 +5,7 @@
 	body{
 		margin:0;
 		--bg-color:rgb(255,255,255);
-		--pop-color:rgb(0,0,220);
+		--pop-color:rgb(250,23,250);
 		background:var(--pop-color);	
 	}
 	

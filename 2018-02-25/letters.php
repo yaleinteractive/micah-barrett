@@ -11,6 +11,7 @@
 		--color-two:rgb(0,0,0);
 		--color-three:rgb(0,0,200);
 		background:var(--color-one);
+		position:absolute;
 	}
 	
 	.controller-nav{
@@ -103,7 +104,9 @@
 		vector-effect: non-scaling-stroke;
 	}
 	@media print{
-
+		body{
+			position:relative;
+		}
 		svg{
 			width:170pt;
 		}
