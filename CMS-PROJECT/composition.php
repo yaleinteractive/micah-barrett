@@ -10,26 +10,63 @@
 
 	$id = $_GET['id'];
 	$counter = 2;
-	$rotation = 0;
 	$minute = date('i');
+	
 	$hour = date('G');
-	$left = $minute;
-	$top = $hour;
+	$left = -30;
+	$hour = 20;
+
+
+	$top = -10;
 	$scale = $hour / 10;
 	$counter = 1;
+
+	$rotation = $minute * 6;
+
+	if ($hour > 12 && $hour < 18) {
+		$afternoon = True;
+
+		$morning = False;
+		$evening = False;
+		$night = False;
+	}
+
+	if ($hour > 4 && $hour < 12) {
+		$morning = True;
+
+		$afternoon = False;
+		$evening = False;
+		$night = False;
+	}
+
+	if ($hour > 17 && $hour < 20) {
+		$evening = true;
+
+		$morning = false;
+		$afternoon = false;
+		$night = false;
+	}
+
+	if ($hour > 19 || $hour < 4) {
+		$night = True;
+
+		$morning = False;
+		$aftenroon = False;
+		$evening = False;
+	}
 	
 
 	
-	echo "<h1 class='composition_header'>$id</h1>";
+	echo "<h1 class='composition_header'># $id at <time>$hour:$minute</time></h1>";
 
 
-	echo "<time>$hour:$minute</time>";
+
 
 	
 
 	echo "<section class='content-wrapper'>";
 
-	echo "<div class='composition_wrapper'>";
+	echo "<div style='width:".($hour*4)."vw;' class='composition_wrapper'>";
 	$sql = "SELECT *
 			FROM placements INNER JOIN pieces
 			WHERE placements.composition_id = $id 
@@ -41,35 +78,73 @@
 	  if ($total_rows > 0) {
 	      // echo $total_rows;
 	      // Get one row at a time until we're out of rows
-	      while ($row = $result->fetch_assoc()) {	
-		      echo "<img class='placed-pieces' style='top:".$top."px;left:".$left."%;transform:rotate(".$rotation."deg) scale(".$scale.");' src='uploads/{$row['piece_id']}/{$row['image']}'>";
+	      while ($row = $result->fetch_assoc()) {
 
-		      $counter++; 
+			  	
+		    echo "<img class='placed-pieces' style='";
+		    // scaling based on it being the afternoon
+		    if ($afternoon && $row['time_of_day'] == 'afternoon') {
+				    echo  "transform:scale(1.5)";
+		  	}
+		  	if ($afternoon && $row['time_of_day'] == 'morning') {
+				    echo  "transform:scale(0.25)";
+		  	}
+
+		  	if ($afternoon && $row['time_of_day'] == 'night') {
+				    echo  "transform:scale(0.55)";
+		  	}
+
+		  	// scaling based on it being night
+		  	if ($night && $row['time_of_day'] == 'night') {
+				    echo  "transform:scale(1.5)";
+		  	}
+
+		  	if ($night && $row['time_of_day'] == 'morning') {
+				    echo  "transform:scale(0.2)";
+		  	}
+
+		  	if ($night && $row['time_of_day'] == 'afternoon') {
+				    echo  "transform:scale(0.4)";
+		  	}
+
+		  	// scaling based on it being morning
+
+		  	if ($morning && $row['time_of_day'] == 'morning') {
+				    echo  "transform:scale(2.0)";
+		  	}
+
+		  	if ($morning && $row['time_of_day'] == 'night') {
+				    echo  "transform:scale(0.2)";
+		  	}
+
+		  	if ($morning && $row['time_of_day'] == 'afternoon') {
+				    echo  "transform:scale(0.5)";
+		  	}
 
 
-		      $rotation = $rotation + 20;
-		      $scale = $scale / 2;
-		      $left = $left + 10;
+		  	if ($evening && $row['time_of_day'] == 'evening') {
+		  		echo "transform:scale(1.25)";
+		  	} 
 
-		      if ($scale <= 0.1) {
-		      	$scale = 1.5;
-		      }
-		      if ($left > 61) {
-		      	$left = 0;
-		      	$top = $top * 3;
-		      }
 
-		      if ($top > 50 && $scale > 1) {
-		      	$top = -10;
-		      }
+		  	
 
-		      if ($total_rows > 20) {
-		      	$scale = 0.5;
+		  	echo "rotate(".$rotation."deg);";
+	    	echo "left:".$left."%; top:".$top."%;";
 
-		      }
-	      }
+		    echo "'src='uploads/{$row['piece_id']}/{$row['image']}'>";
+		    // echo "<p>".$row['time_of_day']."</p>";
+		  	
+		    $left = $left + 10;
+		    if ($left > 80) {
+		    	$left = -30;
+		    	$top = $top + 10;
+		    }
+	    }
+
+
 	  } else {
-	      echo "<h2 class='announcement'>Add some pieces!</h2>";
+	      echo "<h2 class='announcement'><a class='next' href='#drawer'>Add some pieces!</a></h2>";
 	}
 	echo "</div>";
     echo "</section>";
@@ -80,8 +155,10 @@
 	$sql_2 = "SELECT * FROM pieces ORDER BY id DESC";
 	$result_2 = $conn->query($sql_2);
 
-	echo '<form class="pieces-drawer" enctype="multipart/form-data" method="post">
-      		<h2 class="pieces-drawer_title">Insert a piece</h2>';
+	echo '<form class="pieces-drawer" id="drawer" enctype="multipart/form-data" method="post" action="composition.php?id='.$id.'">
+      		<h2 class="pieces-drawer_title">Insert a piece</h2>
+			<div class="pieces-container">
+      		';
 
 	if ($result_2->num_rows > 0) {
 		while ($row = $result_2->fetch_assoc()) {
@@ -94,7 +171,7 @@
 
 		}
 	}
-
+	echo "</div>";
 	echo "<input type='hidden' value='$id' name='composition_id'><br>
       <input type='submit' value='Insert'></form>";
 
