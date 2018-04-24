@@ -1,10 +1,10 @@
-<h1>Pieces library</h1>
 
-<h2>Upload a new piece</h2>
 
-	  <form enctype="multipart/form-data" method="post">
-      <label>Image <input type="file" name="image"></label><br>
-      <input type="submit" value="Upload">
+<h2 class="announcement">Upload a new piece</h2>
+	  <form class="library" enctype="multipart/form-data" method="post">
+	<div class="library-form">
+
+      <label class="file" for="file">Image: <input type="file" name="image"></label>
       <label for="">morning
       <input type="radio" name="time_of_day" value="morning">
       </label>
@@ -20,6 +20,10 @@
       <label for="">night
       <input type="radio" name="time_of_day" value="night">
       </label>
+	  </div>
+
+      <input class="uploader" type="submit" value="Upload">
+
   	  </form>
 
 <?php 
@@ -28,7 +32,7 @@
  	include "insert.php";
  	include "global-nav.php";
 
- 	echo "<div class='pieces-container'>";
+ 	echo "<div class='pieces-library-container'>";
 	$sql = "SELECT * FROM pieces ORDER BY id DESC";
 	  $result = $conn->query($sql);
 	  // If there is at least 1 row in the result, show all the rows

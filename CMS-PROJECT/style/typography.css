@@ -23,6 +23,12 @@
 	--jumbo-text:120px;
 }
 
+
+
+html{
+	scroll-behavior: smooth;
+}
+
 h1,h2,h3,h4,h5,h6,p,li,a,button,label, input{
 	font-family:var(--sans);
 	font-weight:normal;
@@ -47,6 +53,10 @@ button{
 	background:white;
 	border:1px solid black;
 	text-transform:uppercase;
+}
+
+input[type="submit"]:active{
+	transform:scale(0.9);
 }
 
 button:focus{

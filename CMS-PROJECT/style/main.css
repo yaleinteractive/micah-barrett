@@ -17,10 +17,18 @@ body{
 }
 
 .next, .announcement{
-	font-size:120px;
+	font-size:var(--jumbo-text);
 	z-index:200;
 	text-align:center;
 	line-height:1.0;
+	letter-spacing: -0.02em;
+}
+
+@media screen and(max-width:700px){
+	.announcement{
+
+		color:red;
+	}
 }
 
 a.next:link, a.next:visited{
@@ -34,7 +42,7 @@ img{
 }
 
 img.thumbnail{
-	max-width:200px;
+	max-width:100%;
 }
 
 img.placed-pieces{
@@ -70,17 +78,62 @@ time{
 	position:absolute;
 }
 
-.pieces-container{
+.pieces-library-container{
 	display:grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap:18px;
-	margin:0 auto;
+	grid-template-columns: repeat(6,1fr);
 	width:90vw;
+	margin:5em auto;
 }
 
+.pieces-library-cointainer img{
+	max-width:50px;
+}
 
 .piece-index{
 	position:relative;
+}
+
+.library-form label{
+	font-size:var(--large-text);
+	padding:0.5em 0;
+	border-bottom:1px solid black;
+}
+
+.library-form label:last-child{
+
+	grid-column:2 /span 2;
+}
+
+.library-form{
+	display:grid;
+	grid-template-columns:repeat(3,1fr);
+
+}
+
+.library-form label.file{
+	grid-column:1/span 3;
+	text-align:left;
+}
+
+.library-form input[type="radio"]{
+	/*display:block;*/
+}
+
+input[type="submit"].uploader{
+	margin-left:0;
+	margin-top:0.5em;
+}
+
+input[type="file"]{
+	/*background:red;*/
+	font-family:arial;
+	/*font-size:32px;*/
+	/*border:10px solid black;*/
+}
+
+.library{
+	width:90vw;
+	margin:0 auto;
 }
 
 @media screen and (max-width:500px){
