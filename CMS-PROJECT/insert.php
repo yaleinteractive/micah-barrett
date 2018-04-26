@@ -22,5 +22,5 @@
     	// print_r($_FILES);
     	// print "</pre>";
     }
-    echo "<h2>another piece</h2>";
+
   }

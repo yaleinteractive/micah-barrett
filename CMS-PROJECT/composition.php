@@ -14,7 +14,7 @@
 	
 	$hour = date('G');
 	$left = -30;
-	$hour = 20;
+	// $hour = 8;
 
 
 	$top = -10;
@@ -152,7 +152,7 @@
 
 
 
-	$sql_2 = "SELECT * FROM pieces ORDER BY id DESC";
+	$sql_2 = "SELECT * FROM pieces ORDER BY time_of_day DESC";
 	$result_2 = $conn->query($sql_2);
 
 	echo '<form class="pieces-drawer" id="drawer" enctype="multipart/form-data" method="post" action="composition.php?id='.$id.'">
@@ -177,7 +177,7 @@
 
 
     
-	echo "<a href='pieces.php'>upload more pieces</a>";
+	echo "<a class='footer-link' href='pieces.php'>upload more pieces</a>";
 
 	include "global-nav.php";
 

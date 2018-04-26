@@ -8,15 +8,11 @@
       <label for="">morning
       <input type="radio" name="time_of_day" value="morning">
       </label>
-      <label for="">noon
-      <input type="radio" name="time_of_day" value="noon">
-      </label>
+      
       <label for="">afternoon
       <input type="radio" name="time_of_day" value="afternoon">
       </label>
-      <label for="">evening
-      <input type="radio" name="time_of_day" value="evening">
-      </label>
+    
       <label for="">night
       <input type="radio" name="time_of_day" value="night">
       </label>
